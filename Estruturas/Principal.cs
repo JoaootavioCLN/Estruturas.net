@@ -1,3 +1,6 @@
+using System.Diagnostics;
+using static System.Net.WebRequestMethods;
+
 namespace Estruturas
 {
     public partial class frmPrincipal : Form
@@ -9,8 +12,8 @@ namespace Estruturas
 
         private void btnTestar_Click(object sender, EventArgs e)
         {
-            string usuario = "admin";
-            string senha = "Tente123@";
+            string usuario = "Falacio";
+            string senha = "bomdia123@";
 
             if (usuario == txtUsuario.Text & senha == txtSenha.Text)
             {
@@ -42,97 +45,81 @@ namespace Estruturas
             Application.Exit();
         }
 
-        private void btnWhile_Click(object sender, EventArgs e)
+        private void btnJurosSimples_Click(object sender, EventArgs e)
         {
-            int cont = 5;
+            int meses = 5;
+            decimal taxa = 3.5m;
+            decimal capital = 100;
             lsbMostra.Items.Clear();
-            double fatorial = 1;
+            decimal juros = 1;
 
-            while (cont <= 5 & cont >= 1)
-            {
-                fatorial *= cont;
-                cont--;
-                lsbMostra.Items.Add(fatorial.ToString());
-            }
+            taxa = taxa / 100;
+
+            juros = capital * meses * taxa;
+            lsbMostra.Items.Add(juros.ToString());
 
         }
 
-        private void btnDoWhile_Click(object sender, EventArgs e)
+        private void btnMontante_Click(object sender, EventArgs e)
         {
-            int num = 1;
+            int meses = 5;
+            decimal taxa = 3.5m;
+            decimal capital = 100;
+            decimal juros = 1;
+            decimal montante = 1;
             lsbMostra.Items.Clear();
 
-            do
-            {
-                lsbMostra.Items.Add((num * num).ToString());
-                num++;
-            }
-            while (num <= 5);
+            taxa = taxa / 100;
+            juros = capital * meses * taxa;
+            montante = capital + juros;
+            lsbMostra.Items.Add(montante.ToString());
         }
 
-        private void btnFor_Click(object sender, EventArgs e)
+        private void btnJurosComp_Click(object sender, EventArgs e)
         {
-            int maisvc = 0;
+            int meses = 5;
+            decimal taxa = 3.5m;
+            decimal capital = 100;
             lsbMostra.Items.Clear();
 
-            for (maisvc = 1; maisvc <= 25000; maisvc *= 5)
-            {
-                lsbMostra.Items.Add(maisvc.ToString());
-            }
+            decimal montante = 1;
+            taxa = taxa / 100;
+            montante = Math.Round(capital * (decimal)Math.Pow((double)(1 + taxa), meses), 2);
+            lsbMostra.Items.Add(montante.ToString());
         }
 
-        private void btnForEach_Click(object sender, EventArgs e)
+        private void btnCalculaJ_Click(object sender, EventArgs e)
         {
-            // Array ou vetor é uma estrutura de dados que armazena
-            // valores que podem ser acessados por uma posição
-            // frutas[0] = "Maça", frutas[1] = "Mamão",.....
-            string[] frutas = ["Maça", "Mamão", "Abacaxi", "Limão"];
-
-            lsbMostra.Items.Clear();
-            // lsbMostra.Items.Add(frutas[0]);
-            // lsbMostra.Items.Add(frutas[1]);
-
-            foreach (string coisas in frutas)
+            string url = "https://www3.bcb.gov.br/CALCIDADAO/publico/exibirFormFinanciamentoPrestacoesFixas.do?method=exibirFormFinanciamentoPrestacoesFixas";
+            ProcessStartInfo info = new ProcessStartInfo
             {
-                lsbMostra.Items.Add(coisas);
-            }
+                FileName = "chrome.exe",
+                Arguments = url,
+                UseShellExecute = true
+            };
+            Process.Start(info);
         }
 
-        private void btnBreak_Click(object sender, EventArgs e)
+        private void btnCalculadora_Click(object sender, EventArgs e)
         {
-            int cont = 5;
-            lsbMostra.Items.Clear();
-            double fatorial = 1;
-
-            while (cont <= 5 & cont >= 1)
-            {
-                fatorial *= cont;
-                cont--;
-                if (cont == 2)
-                {
-                    break;
-                }
-                lsbMostra.Items.Add(fatorial.ToString());
-            }
+            Process.Start("calc.exe");
         }
 
-        private void btnContinue_Click(object sender, EventArgs e)
+        private void btnBlocodn_Click(object sender, EventArgs e)
         {
-            int cont = 5;
-            lsbMostra.Items.Clear();
-            double fatorial = 1;
+            Process.Start("notepad.exe");
+        }
 
-            while (cont <= 5 & cont >= 1)
+        private void btnBobEsp_Click(object sender, EventArgs e)
+        {
+            string url = "https://www.youtube.com/@BobEsponjaemPortugu%C3%AAs";
+            ProcessStartInfo info = new ProcessStartInfo
             {
-                fatorial *= cont;
-                cont--;
-
-                if (cont == 2)
-                {
-                    continue;
-                }
-                lsbMostra.Items.Add(fatorial.ToString());
-            }
+                FileName = "chrome.exe",
+                Arguments = url,
+                UseShellExecute = true
+            };
+            Process.Start(info);
         }
     }
 }

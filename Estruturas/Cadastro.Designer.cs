@@ -37,17 +37,20 @@
             // pibImagem
             // 
             pibImagem.Image = (Image)resources.GetObject("pibImagem.Image");
-            pibImagem.Location = new Point(47, 30);
+            pibImagem.Location = new Point(-17, 14);
+            pibImagem.Margin = new Padding(4, 5, 4, 5);
             pibImagem.Name = "pibImagem";
-            pibImagem.Size = new Size(213, 237);
+            pibImagem.Size = new Size(593, 492);
             pibImagem.TabIndex = 0;
             pibImagem.TabStop = false;
             // 
             // btnFechar
             // 
-            btnFechar.Location = new Point(98, 285);
+            btnFechar.Cursor = Cursors.Hand;
+            btnFechar.Location = new Point(619, 230);
+            btnFechar.Margin = new Padding(4, 5, 4, 5);
             btnFechar.Name = "btnFechar";
-            btnFechar.Size = new Size(106, 40);
+            btnFechar.Size = new Size(151, 67);
             btnFechar.TabIndex = 1;
             btnFechar.Text = "Sair";
             btnFechar.UseVisualStyleBackColor = true;
@@ -55,13 +58,15 @@
             // 
             // frmCadastro
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            BackColor = Color.Yellow;
+            ClientSize = new Size(1143, 750);
             Controls.Add(btnFechar);
             Controls.Add(pibImagem);
+            Margin = new Padding(4, 5, 4, 5);
             Name = "frmCadastro";
-            Text = "Cadastro";
+            Text = "Foto";
             ((System.ComponentModel.ISupportInitialize)pibImagem).EndInit();
             ResumeLayout(false);
         }
